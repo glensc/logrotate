@@ -2,22 +2,21 @@ sudo: required
 dist: precise
 language: c
 
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-
 matrix:
   include:
     - compiler: gcc
       addons:
         apt:
+          sources:
+            - ubuntu-toolchain-r-test
           packages:
             - g++-4.9
       env: COMPILER=g++-4.9
     - compiler: gcc
       addons:
         apt:
+          sources:
+            - ubuntu-toolchain-r-test
           packages:
             - g++-5
       env: COMPILER=g++-5
@@ -25,6 +24,7 @@ matrix:
       addons:
         apt:
           sources:
+            - ubuntu-toolchain-r-test
             - llvm-toolchain-precise-3.6
           packages:
             - clang-3.6
@@ -33,6 +33,7 @@ matrix:
       addons:
         apt:
           sources:
+            - ubuntu-toolchain-r-test
             - llvm-toolchain-precise-3.7
           packages:
             - clang-3.7
@@ -44,7 +45,6 @@ install:
   - sudo apt-get -qq install libpopt-dev libselinux1-dev libacl1-dev automake dash g++-6
 
 script:
-  - $COMPILER --version
   - ./autogen.sh
   - ./configure CC=$COMPILER
   - make
