@@ -17,7 +17,9 @@ matrix:
     compiler: clang
   - env: CC=gcc
     compiler: clang
-#
+  - env: CC=clang
+    compiler: gcc
+
 #  include:
 #  - env: GCC_VERSION=6
 
