@@ -7,22 +7,6 @@ compiler:
   - gcc
   - clang
 
-env:
-  matrix:
-    - COMPILER=gcc
-    - COMPILER=gcc-6
-    - COMPILER=clang
-
-matrix:
-  exclude:
-  # exclude impossible combinations
-  - env: COMPILER=gcc-6
-    compiler: clang
-  - env: COMPILER=gcc
-    compiler: clang
-  - env: COMPILER=clang
-    compiler: gcc
-
 matrix:
   include:
     - compiler: gcc
