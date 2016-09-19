@@ -6,22 +6,19 @@ compiler:
 
 env:
   matrix:
-    - CC=gcc
-    - CC=gcc-6
-    - CC=clang
+    - COMPILER=gcc
+    - COMPILER=gcc-6
+    - COMPILER=clang
 
 matrix:
   exclude:
   # exclude impossible combinations
-  - env: CC=gcc-6
+  - env: COMPILER=gcc-6
     compiler: clang
-  - env: CC=gcc
+  - env: COMPILER=gcc
     compiler: clang
-  - env: CC=clang
+  - env: COMPILER=clang
     compiler: gcc
-
-#  include:
-#  - env: GCC_VERSION=6
 
 install:
   - sudo add-apt-repository ppa:dns/gnu -y
