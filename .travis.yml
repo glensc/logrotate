@@ -4,10 +4,10 @@ compiler:
   - gcc
   - clang
 
-#env:
-#  matrix:
-#  - GCC_VERSION=6
-#  - GCC_VERSION=4
+env:
+  matrix:
+  - GCC_VERSION=6
+  - GCC_VERSION=4
 
 #matrix:
 #
