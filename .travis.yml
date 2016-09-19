@@ -9,14 +9,14 @@ env:
     - CC=gcc
     - CC=gcc-6
     - CC=clang
+
+matrix:
   exclude:
   # exclude impossible combinations
   - env: CC=gcc-6
     compiler: clang
   - env: CC=gcc
     compiler: clang
-
-#matrix:
 #
 #  include:
 #  - env: GCC_VERSION=6
