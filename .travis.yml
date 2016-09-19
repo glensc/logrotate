@@ -6,11 +6,14 @@ compiler:
 
 env:
   matrix:
-    - GCC_VERSION=6
-    - GCC_VERSION=4
+    - CC=gcc
+    - CC=gcc-6
+    - CC=clang
   exclude:
-  # exclude second clang build
-  - env: GCC_VERSION=6
+  # exclude impossible combinations
+  - env: CC=gcc-6
+    compiler: clang
+  - env: CC=gcc
     compiler: clang
 
 #matrix:
