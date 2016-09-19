@@ -4,10 +4,14 @@ compiler:
   - gcc
   - clang
 
-env:
-  matrix:
-  - GCC_VERSION=6
-  - GCC_VERSION=4
+#env:
+#  matrix:
+#  - GCC_VERSION=6
+#  - GCC_VERSION=4
+
+#matrix:
+#  include:
+#  - env: GCC_VERSION=6
 
 install:
   - sudo add-apt-repository ppa:dns/gnu -y
