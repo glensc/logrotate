@@ -115,6 +115,8 @@ script:
   - make test
   - cd test && LOGROTATE=../logrotate /bin/dash test && cd ..
   - make distcheck
+  - make rpm
+  - make srpm
 
 notifications:
   email:
