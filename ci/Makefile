@@ -48,6 +48,16 @@ ubuntu/zesty:
 	$(MAKE) build_docker PLATFORM=$@ PACKAGE_MANAGER=apt PACKAGES='$(APT_PACKAGES)'
 	$(MAKE) build PLATFORM=$@
 
+PLATFORMS += debian/wheezy
+debian/wheezy:
+	$(MAKE) build_docker PLATFORM=$@ PACKAGE_MANAGER=apt PACKAGES='$(APT_PACKAGES)'
+	$(MAKE) build PLATFORM=$@
+
+PLATFORMS += debian/jessie
+debian/jessie:
+	$(MAKE) build_docker PLATFORM=$@ PACKAGE_MANAGER=apt PACKAGES='$(APT_PACKAGES)'
+	$(MAKE) build PLATFORM=$@
+
 PLATFORMS += fedora/20
 fedora/20:
 	$(MAKE) build_docker PLATFORM=$@ PACKAGE_MANAGER=yum PACKAGES='$(YUM_PACKAGES)'
