@@ -5,6 +5,7 @@ services:
     - docker
 
 script:
+  - docker-compose --version
   - docker-compose run ubuntu_precise
 
 # vim:et:ts=2:sw=2
