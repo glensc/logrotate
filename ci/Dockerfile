@@ -1,4 +1,4 @@
-FROM ubuntu:precise
+FROM {{IMAGE}}
 
 RUN apt-get update -qq
 

@@ -6,11 +6,11 @@ services:
 
 matrix:
   include:
-    - env: IMAGE=precise
-    - env: IMAGE=trusty
+    - env: OS=precise
+    - env: OS=trusty
 
 script: |
   cd ci
-  docker-compose run $IMAGE
+  docker-compose run $OS
 
 # vim:et:ts=2:sw=2

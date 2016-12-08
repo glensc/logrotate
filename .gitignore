@@ -20,3 +20,4 @@ Makefile.in
 /missing
 /test/test.ACL
 /test/test.SELINUX
+!/ci/Makefile
