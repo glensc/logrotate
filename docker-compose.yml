@@ -12,6 +12,6 @@ services:
     command:
       - sh
       - -c
-      - ./autogen.sh && ./configure && make && make test && make distcheck
+      - ./autogen.sh && ./configure && make && make distcheck
 
 # vim:ts=2:sw=2:et
