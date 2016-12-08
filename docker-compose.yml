@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  ubuntu:precise:
+    image: ubuntu:precise
+    volumes:
+      - ./:/build
+    workdir:
+      - /build
+    command:
+      - make
+
+# vim:ts=2:sw=2:et
