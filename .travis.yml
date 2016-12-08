@@ -4,11 +4,6 @@ language: c
 services:
   - docker
 
-matrix:
-  include:
-    - env: PLATFORM=ubuntu/precise
-#    - env: PLATFORM=ubuntu/trusty
-
 script:
   - docker --version
   - docker-compose --version
