@@ -10,4 +10,5 @@ if [ ! -f Makefile ]; then
 	../../../configure
 fi
 make
-#make distcheck
+
+make check
