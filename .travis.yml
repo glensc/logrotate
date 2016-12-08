@@ -6,11 +6,10 @@ services:
 
 matrix:
   include:
-    - env: OS=precise
-    - env: OS=trusty
+    - env: PLATFORM=ubuntu/precise
+    - env: PLATFORM=ubuntu/trusty
 
 script: |
-  cd ci
-  docker-compose run $OS
+  make -C ci $PLATFORM
 
 # vim:et:ts=2:sw=2

@@ -20,20 +20,21 @@ all: $(PLATFORMS)
 
 # 12.04, precise
 ubuntu/precise:
-	install -d $@
-	sed -e 's;{{IMAGE}};$(subst /,:,$@);' Dockerfile > $@/Dockerfile
-	docker build -t $@ -f $@/Dockerfile --build-arg packages='$(PACKAGES)' .
-	docker run -v $(CURDIR)/..:/build -w /build $@ sh -c './autogen.sh && ./configure && make && make distcheck'
+	$(call build_docker,$@)
 
 # 14.04, trusty
 ubuntu/trusty:
-	install -d $@
-	sed -e 's;{{IMAGE}};$(subst /,:,$@);' Dockerfile > $@/Dockerfile
-	docker build -t $@ -f $@/Dockerfile --build-arg packages='$(PACKAGES)' .
-	docker run -v $(CURDIR)/..:/build -w /build $@ sh -c './autogen.sh && ./configure && make && make distcheck'
+	$(call build_docker,$@)
 
 # 16.04, xenial
 # 16.10, yakkety
 # 17.04, zesty
+
+define build_docker
+	install -d $1
+	sed -e 's;{{IMAGE}};$(subst /,:,$1);' Dockerfile > $1/Dockerfile
+	docker build -t $1 -f $1/Dockerfile --build-arg packages='$(PACKAGES)' .
+	docker run -v $(CURDIR)/..:/build -w /build $@ sh -c './autogen.sh && ./configure && make && make distcheck'
+endef
 
 .PHONY: $(PLATFORMS)
