@@ -4,8 +4,13 @@ language: c
 services:
     - docker
 
-script:
-  - docker-compose run precise
-  - docker-compose run trusty
+matrix:
+  include:
+    - env: IMAGE=precise
+    - env: IMAGE=trusty
+
+script: |
+  cd ci
+  docker-compose run $IMAGE
 
 # vim:et:ts=2:sw=2
