@@ -10,6 +10,8 @@ matrix:
     - env: PLATFORM=ubuntu/trusty
 
 script: |
+  type docker
+  type docker-compose
   make -C ci $PLATFORM
 
 # vim:et:ts=2:sw=2
