@@ -3,7 +3,7 @@ dist: precise
 language: c
 
 services:
-    - docker
+  - docker
 
 #matrix:
 #  include:
