@@ -17,6 +17,8 @@ env:
   - PLATFORM=fedora/24
   - PLATFORM=fedora/25
   - PLATFORM=fedora/rawhide
+  - PLATFORM=centos/centos5
+  - PLATFORM=centos/centos6
   - PLATFORM=centos/centos7
 
 script:

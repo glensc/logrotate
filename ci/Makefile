@@ -83,6 +83,16 @@ fedora/rawhide:
 	$(MAKE) build_docker PLATFORM=$@ PACKAGE_MANAGER=yum PACKAGES='$(YUM_PACKAGES)'
 	$(MAKE) build PLATFORM=$@
 
+PLATFORMS += centos/centos5
+centos/centos5:
+	$(MAKE) build_docker PLATFORM=$@ PACKAGE_MANAGER=yum PACKAGES='$(YUM_PACKAGES)'
+	$(MAKE) build PLATFORM=$@
+
+PLATFORMS += centos/centos6
+centos/centos6:
+	$(MAKE) build_docker PLATFORM=$@ PACKAGE_MANAGER=yum PACKAGES='$(YUM_PACKAGES)'
+	$(MAKE) build PLATFORM=$@
+
 PLATFORMS += centos/centos7
 centos/centos7:
 	$(MAKE) build_docker PLATFORM=$@ PACKAGE_MANAGER=yum PACKAGES='$(YUM_PACKAGES)'
