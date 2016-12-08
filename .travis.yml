@@ -5,14 +5,15 @@ language: c
 services:
     - docker
 
-matrix:
-  include:
-    - env: PLATFORM=ubuntu/precise
-    - env: PLATFORM=ubuntu/trusty
+#matrix:
+#  include:
+#    - env: PLATFORM=ubuntu/precise
+#    - env: PLATFORM=ubuntu/trusty
 
 script:
   - docker --version
   - docker-compose --version
-  - make -C ci $PLATFORM
+  - make -C ci ubuntu/precise
+  - make -C ci ubuntu/trusty
 
 # vim:et:ts=2:sw=2
