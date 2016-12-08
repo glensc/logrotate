@@ -1,13 +1,17 @@
 version: '2'
 
 services:
-  ubuntu:precise:
-    image: ubuntu:precise
+  ubuntu_precise:
+    build:
+      context: .
+      args:
+        packages: make autoconf libtool libpopt-dev
     volumes:
       - ./:/build
-    workdir:
-      - /build
+    working_dir: /build
     command:
-      - make
+      - sh
+      - -c
+      - ./autogen.sh && ./configure && make && make test && make distcheck
 
 # vim:ts=2:sw=2:et

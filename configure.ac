@@ -3,11 +3,11 @@ AC_INIT([logrotate],[3.11.0])
 dnl foreign: Do not require AUTHORS, ChangeLog, NEWS, and README to exist
 dnl serial-tests: Do not hide standard output of our sequential test-suite
 dnl dist-xz: Produce tar.xz version of the release archive
-AM_INIT_AUTOMAKE([foreign serial-tests dist-xz])
+AM_INIT_AUTOMAKE([foreign dist-xz])
 
 AC_DEFINE(_GNU_SOURCE)
 
-AM_EXTRA_RECURSIVE_TARGETS([test])
+dnl AM_EXTRA_RECURSIVE_TARGETS([test])
 
 AC_PROG_CC
 AC_PROG_CC_STDC
