@@ -5,6 +5,7 @@ services:
     - docker
 
 script:
-  - docker-compose run ubuntu_precise
+  - docker-compose run precise
+  - docker-compose run trusty
 
 # vim:et:ts=2:sw=2

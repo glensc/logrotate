@@ -1,11 +1,12 @@
 version: '2'
 
+
 services:
-  ubuntu_precise:
+  ubuntu:
     build:
       context: .
       args:
-        packages: make autoconf libtool libpopt-dev
+        packages: make autoconf libtool libpopt-dev xz-utils
     volumes:
       - ./:/build
     working_dir: /build
@@ -13,5 +14,22 @@ services:
       - sh
       - -c
       - ./autogen.sh && ./configure && make && make distcheck
+
+  # 12.04, precise
+  precise:
+    extends:
+      service: ubuntu
+    build:
+      dockerfile: Dockerfile.precise
+
+  # 14.04, trusty
+  trusty:
+    extends:
+      service: ubuntu
+    build:
+      dockerfile: Dockerfile.trusty
+  # 16.04, xenial-20161121, xenial
+  # 16.10, yakkety-20161121, yakkety
+  # 17.04, zesty-20161129.1, zesty
 
 # vim:ts=2:sw=2:et
