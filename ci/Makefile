@@ -11,7 +11,8 @@
 #
 
 PLATFORMS =
-PACKAGES := make autoconf libtool libpopt-dev xz-utils
+APT_PACKAGES := make autoconf libtool libpopt-dev xz-utils
+YUM_PACKAGES := make autoconf automake libtool popt-devel
 
 all: build-all
 
@@ -20,36 +21,41 @@ all: build-all
 # 12.04, precise
 PLATFORMS += ubuntu/precise
 ubuntu/precise:
-	$(MAKE) build_docker PLATFORM=$@
+	$(MAKE) build_docker PLATFORM=$@ PACKAGE_MANAGER=apt PACKAGES='$(APT_PACKAGES)'
 	$(MAKE) build PLATFORM=$@
 
 # 14.04, trusty
 PLATFORMS += ubuntu/trusty
 ubuntu/trusty:
-	$(MAKE) build_docker PLATFORM=$@
+	$(MAKE) build_docker PLATFORM=$@ PACKAGE_MANAGER=apt PACKAGES='$(APT_PACKAGES)'
 	$(MAKE) build PLATFORM=$@
 
 # 16.04, xenial
 PLATFORMS += ubuntu/xenial
 ubuntu/xenial:
-	$(MAKE) build_docker PLATFORM=$@
+	$(MAKE) build_docker PLATFORM=$@ PACKAGE_MANAGER=apt PACKAGES='$(APT_PACKAGES)'
 	$(MAKE) build PLATFORM=$@
 
 # 16.10, yakkety
 PLATFORMS += ubuntu/yakkety
 ubuntu/yakkety:
-	$(MAKE) build_docker PLATFORM=$@
+	$(MAKE) build_docker PLATFORM=$@ PACKAGE_MANAGER=apt PACKAGES='$(APT_PACKAGES)'
 	$(MAKE) build PLATFORM=$@
 
 # 17.04, zesty
 PLATFORMS += ubuntu/zesty
 ubuntu/zesty:
-	$(MAKE) build_docker PLATFORM=$@
+	$(MAKE) build_docker PLATFORM=$@ PACKAGE_MANAGER=apt PACKAGES='$(APT_PACKAGES)'
+	$(MAKE) build PLATFORM=$@
+
+PLATFORMS += fedora/20
+fedora/20:
+	$(MAKE) build_docker PLATFORM=$@ PACKAGE_MANAGER=yum PACKAGES='$(YUM_PACKAGES)'
 	$(MAKE) build PLATFORM=$@
 
 build_docker:
 	install -d $(PLATFORM)
-	sed -e 's;{{IMAGE}};$(subst /,:,$(PLATFORM));' Dockerfile > $(PLATFORM)/Dockerfile
+	sed -e 's;{{IMAGE}};$(subst /,:,$(PLATFORM));' Dockerfile.$(PACKAGE_MANAGER) > $(PLATFORM)/Dockerfile
 	docker build -t $(PLATFORM) -f $(PLATFORM)/Dockerfile --build-arg packages='$(PACKAGES)' .
 
 build-all: $(PLATFORMS)

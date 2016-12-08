@@ -1,0 +1,4 @@
+FROM {{IMAGE}}
+
+ARG packages
+RUN yum install -y $packages
