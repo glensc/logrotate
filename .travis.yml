@@ -4,18 +4,12 @@ language: c
 services:
   - docker
 
-matrix:
-  include:
-    - os: linux
-      env: PLATFORM=ubuntu/precise
-    - os: linux
-      env: PLATFORM=ubuntu/trusty
-    - os: linux
-      env: PLATFORM=ubuntu/xenial
-    - os: linux
-      env: PLATFORM=ubuntu/yakkety
-    - os: linux
-      env: PLATFORM=ubuntu/zesty
+env:
+  - PLATFORM=ubuntu/precise
+  - PLATFORM=ubuntu/trusty
+  - PLATFORM=ubuntu/xenial
+  - PLATFORM=ubuntu/yakkety
+  - PLATFORM=ubuntu/zesty
 
 script:
   - docker --version
