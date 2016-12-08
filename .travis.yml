@@ -17,6 +17,7 @@ env:
   - PLATFORM=fedora/24
   - PLATFORM=fedora/25
   - PLATFORM=fedora/rawhide
+  - PLATFORM=centos/centos7
 
 script:
   - docker --version

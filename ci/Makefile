@@ -54,22 +54,22 @@ fedora/20:
 	$(MAKE) build PLATFORM=$@
 
 PLATFORMS += fedora/21
-fedora/25:
+fedora/21:
 	$(MAKE) build_docker PLATFORM=$@ PACKAGE_MANAGER=yum PACKAGES='$(YUM_PACKAGES)'
 	$(MAKE) build PLATFORM=$@
 
 PLATFORMS += fedora/22
-fedora/25:
+fedora/22:
 	$(MAKE) build_docker PLATFORM=$@ PACKAGE_MANAGER=yum PACKAGES='$(YUM_PACKAGES)'
 	$(MAKE) build PLATFORM=$@
 
 PLATFORMS += fedora/23
-fedora/25:
+fedora/23:
 	$(MAKE) build_docker PLATFORM=$@ PACKAGE_MANAGER=yum PACKAGES='$(YUM_PACKAGES)'
 	$(MAKE) build PLATFORM=$@
 
 PLATFORMS += fedora/24
-fedora/25:
+fedora/24:
 	$(MAKE) build_docker PLATFORM=$@ PACKAGE_MANAGER=yum PACKAGES='$(YUM_PACKAGES)'
 	$(MAKE) build PLATFORM=$@
 
@@ -80,6 +80,11 @@ fedora/25:
 
 PLATFORMS += fedora/rawhide
 fedora/rawhide:
+	$(MAKE) build_docker PLATFORM=$@ PACKAGE_MANAGER=yum PACKAGES='$(YUM_PACKAGES)'
+	$(MAKE) build PLATFORM=$@
+
+PLATFORMS += centos/centos7
+centos/centos7:
 	$(MAKE) build_docker PLATFORM=$@ PACKAGE_MANAGER=yum PACKAGES='$(YUM_PACKAGES)'
 	$(MAKE) build PLATFORM=$@
 
