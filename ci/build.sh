@@ -5,7 +5,9 @@ PLATFORM="$1"
 pwd
 cd "ci/$PLATFORM"
 
-(cd ../../.. && ./autogen.sh)
-../../../configure
+if [ ! -f Makefile ]; then
+	(cd ../../.. && ./autogen.sh)
+	../../../configure
+fi
 make
-make distcheck
+#make distcheck
