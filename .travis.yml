@@ -11,6 +11,12 @@ env:
   - PLATFORM=ubuntu/xenial
   - PLATFORM=ubuntu/yakkety
   - PLATFORM=ubuntu/zesty
+  - PLATFORM=fedora/21
+  - PLATFORM=fedora/22
+  - PLATFORM=fedora/23
+  - PLATFORM=fedora/24
+  - PLATFORM=fedora/25
+  - PLATFORM=fedora/rawhide
 
 script:
   - docker --version

@@ -53,6 +53,36 @@ fedora/20:
 	$(MAKE) build_docker PLATFORM=$@ PACKAGE_MANAGER=yum PACKAGES='$(YUM_PACKAGES)'
 	$(MAKE) build PLATFORM=$@
 
+PLATFORMS += fedora/21
+fedora/25:
+	$(MAKE) build_docker PLATFORM=$@ PACKAGE_MANAGER=yum PACKAGES='$(YUM_PACKAGES)'
+	$(MAKE) build PLATFORM=$@
+
+PLATFORMS += fedora/22
+fedora/25:
+	$(MAKE) build_docker PLATFORM=$@ PACKAGE_MANAGER=yum PACKAGES='$(YUM_PACKAGES)'
+	$(MAKE) build PLATFORM=$@
+
+PLATFORMS += fedora/23
+fedora/25:
+	$(MAKE) build_docker PLATFORM=$@ PACKAGE_MANAGER=yum PACKAGES='$(YUM_PACKAGES)'
+	$(MAKE) build PLATFORM=$@
+
+PLATFORMS += fedora/24
+fedora/25:
+	$(MAKE) build_docker PLATFORM=$@ PACKAGE_MANAGER=yum PACKAGES='$(YUM_PACKAGES)'
+	$(MAKE) build PLATFORM=$@
+
+PLATFORMS += fedora/25
+fedora/25:
+	$(MAKE) build_docker PLATFORM=$@ PACKAGE_MANAGER=yum PACKAGES='$(YUM_PACKAGES)'
+	$(MAKE) build PLATFORM=$@
+
+PLATFORMS += fedora/rawhide
+fedora/rawhide:
+	$(MAKE) build_docker PLATFORM=$@ PACKAGE_MANAGER=yum PACKAGES='$(YUM_PACKAGES)'
+	$(MAKE) build PLATFORM=$@
+
 build_docker:
 	install -d $(PLATFORM)
 	sed -e 's;{{IMAGE}};$(subst /,:,$(PLATFORM));' Dockerfile.$(PACKAGE_MANAGER) > $(PLATFORM)/Dockerfile
