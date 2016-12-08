@@ -12,6 +12,15 @@ matrix:
     - os: linux
       sudo: required
       env: PLATFORM=ubuntu/trusty
+    - os: linux
+      sudo: required
+      env: PLATFORM=ubuntu/xenial
+    - os: linux
+      sudo: required
+      env: PLATFORM=ubuntu/yakkety
+    - os: linux
+      sudo: required
+      env: PLATFORM=ubuntu/zesty
 
 script:
   - docker --version
