@@ -9,9 +9,6 @@ matrix:
     - os: linux
       sudo: required
       env: PLATFORM=ubuntu/precise
-    - os: linux
-      sudo: required
-      env: PLATFORM=ubuntu/trusty
 
 script:
   - docker --version
