@@ -7,6 +7,8 @@ services:
 script:
   - docker --version
   - docker-compose --version
+  - make -C ci ubuntu/precise
+  - make -C ci ubuntu/trusty
   - docker-compose run ubuntu_precise
 
 # vim:et:ts=2:sw=2
