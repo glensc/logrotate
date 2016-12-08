@@ -20,21 +20,24 @@ all: $(PLATFORMS)
 
 # 12.04, precise
 ubuntu/precise:
-	$(call build_docker,$@)
+	$(MAKE) build_docker PLATFORM=$@
+	$(MAKE) build PLATFORM=$@
 
 # 14.04, trusty
 ubuntu/trusty:
-	$(call build_docker,$@)
+	$(MAKE) build_docker PLATFORM=$@
+	$(MAKE) build PLATFORM=$@
 
 # 16.04, xenial
 # 16.10, yakkety
 # 17.04, zesty
 
-define build_docker
-	install -d $1
-	sed -e 's;{{IMAGE}};$(subst /,:,$1);' Dockerfile > $1/Dockerfile
-	docker build -t $1 -f $1/Dockerfile --build-arg packages='$(PACKAGES)' .
-	docker run -v $(CURDIR)/..:/build -w /build $@ sh -c './autogen.sh && ./configure && make && make distcheck'
-endef
+build_docker:
+	install -d $(PLATFORM)
+	sed -e 's;{{IMAGE}};$(subst /,:,$(PLATFORM));' Dockerfile > $(PLATFORM)/Dockerfile
+	docker build -t $(PLATFORM) -f $(PLATFORM)/Dockerfile --build-arg packages='$(PACKAGES)' .
+
+build:
+	docker run -v $(CURDIR)/..:/build -w /build $(PLATFORM) ci/build.sh $(PLATFORM)
 
 .PHONY: $(PLATFORMS)
