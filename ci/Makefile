@@ -116,6 +116,6 @@ build_docker:
 build-all: $(PLATFORMS)
 
 build:
-	docker run -v $(CURDIR)/..:/build -w /build $(PLATFORM) ci/build.sh $(PLATFORM)
+	docker run --rm -v $(CURDIR)/..:/build -w /build $(PLATFORM) ci/build.sh $(PLATFORM)
 
 .PHONY: $(PLATFORMS)
