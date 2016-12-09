@@ -12,7 +12,7 @@
 
 PLATFORMS =
 APT_PACKAGES := make autoconf libtool libpopt-dev xz-utils
-YUM_PACKAGES := make autoconf automake libtool popt-devel
+YUM_PACKAGES := make autoconf automake libtool popt-devel xz
 
 all: build-all
 
